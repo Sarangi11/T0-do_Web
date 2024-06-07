@@ -2,60 +2,86 @@ const express = require('express');
 const router = express.Router();
 const Task = require('../modles/WeekTask.js');
 
-// Create a new task
-
-router.post('/week/tasks', async (req, res) => {
-  try {
-    const { title, description, day, time } = req.body;
-    
-    
-    if (!title || !description || !day || !time) {
-      return res.status(400).json({ message: 'All required fields must be provided' });
-    }
-    
-    const task = new Task({ title, description, day, time });
-    await task.save();
-    res.status(201).json(task);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Internal Server Error' });
-  }
-});
-
-
 // Get all tasks
-router.get('/week/tasks', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const tasks = await Task.find();
     res.json(tasks);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Internal Server Error' });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// Get completed tasks
+router.get('/completed', async (req, res) => {
+  try {
+    const tasks = await Task.find({ completed: true });
+    res.json(tasks);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// Create a task
+router.post('/', async (req, res) => {
+  const task = new Task({
+    title: req.body.title,
+    description: req.body.description,
+    date: req.body.date,
+    time: req.body.time,
+  });
+
+  try {
+    const newTask = await task.save();
+    res.status(201).json(newTask);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
   }
 });
 
 // Update a task
-router.put('/week/tasks/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
-    const { id } = req.params;
-    const { title, description, day, time, completed } = req.body;
-    const updatedTask = await Task.findByIdAndUpdate(id, { title, description, day, time, completed }, { new: true });
+    const task = await Task.findById(req.params.id);
+    if (!task) return res.status(404).json({ message: 'Task not found' });
+
+    task.title = req.body.title;
+    task.description = req.body.description;
+    task.date = req.body.date;
+    task.time = req.body.time;
+
+    const updatedTask = await task.save();
     res.json(updatedTask);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Internal Server Error' });
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+// Mark task as complete
+router.patch('/:id', async (req, res) => {
+  try {
+    const task = await Task.findById(req.params.id);
+    if (!task) return res.status(404).json({ message: 'Task not found' });
+
+    task.completed = req.body.completed;
+
+    const updatedTask = await task.save();
+    res.json(updatedTask);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
   }
 });
 
 // Delete a task
-router.delete('/week/tasks/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
-    const { id } = req.params;
-    await Task.findByIdAndDelete(id);
-    res.json({ message: 'Task deleted successfully' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Internal Server Error' });
+    const task = await Task.findById(req.params.id);
+    if (!task) return res.status(404).json({ message: 'Task not found' });
+
+    await task.remove();
+    res.json({ message: 'Task deleted' });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 });
 

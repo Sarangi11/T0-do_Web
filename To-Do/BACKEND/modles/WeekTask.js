@@ -1,29 +1,28 @@
 const mongoose = require('mongoose');
 
-
-const TaskSchema = new mongoose.Schema({
+const taskSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
-    required: true
+    required: true,
   },
-  day: {
-    type: Date,
-    required: true
+  date: {
+    type: String,
+    required: true,
   },
   time: {
     type: String,
-    required: true
+    required: true,
   },
   completed: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 });
 
+const Task = mongoose.model('Task', taskSchema);
 
-const Task = mongoose.model('week', TaskSchema);
 module.exports = Task;

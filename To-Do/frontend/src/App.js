@@ -2,7 +2,7 @@
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom"; 
 import Home from './pages/HomePage/Home';
 import WeekTask from './pages/WeekTask/WeekTask';
-import UpdateRequest from './pages/UpdateSchedule/UpdateSchedule';
+import ShowTask from './pages/ShowTask/ShowTask';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
     <Routes>
       <Route path='' element={<Home/>}/>
       <Route path='/WeekTask' element={<WeekTask/>}/>
-      <Route path='/update/:id' element={<UpdateRequest/>}/>
+      <Route path='/update' element={<ShowTask/>}/>
     </Routes>
     </Router>
   );
