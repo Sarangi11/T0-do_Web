@@ -8,6 +8,7 @@ const ShowTasksPage = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [showTasks, setShowTasks] = useState([]);
   const [editingTask, setEditingTask] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchTasks();
@@ -17,25 +18,28 @@ const ShowTasksPage = () => {
     try {
       const response = await axios.get('http://localhost:8070/week/');
       setTasks(response.data);
+      filterTasks(selectedDate);
     } catch (error) {
-      console.error(error);
-      alert('Failed to fetch tasks.');
+      setError(error.message);
     }
+  };
+
+  const filterTasks = (date) => {
+    const filteredTasks = tasks.filter(task => task.date === date.toISOString().split('T')[0]);
+    setShowTasks(filteredTasks);
   };
 
   const handleDateClick = (date) => {
     setSelectedDate(date);
-    const tasksForSelectedDate = tasks.filter(task => task.date === date.toISOString().split('T')[0]);
-    setShowTasks(tasksForSelectedDate);
+    filterTasks(date);
   };
 
   const handleDeleteTask = async (id) => {
     try {
-      await axios.delete(`http://localhost:8070/week/${id}`);
+      await axios.delete(`http://localhost:8070/week/delete/${id}`);
       fetchTasks();
     } catch (error) {
-      console.error(error);
-      alert('Failed to delete task.');
+      setError(error.message);
     }
   };
 
@@ -44,8 +48,7 @@ const ShowTasksPage = () => {
       await axios.patch(`http://localhost:8070/week/${id}`, { completed: true });
       fetchTasks();
     } catch (error) {
-      console.error(error);
-      alert('Failed to mark task as complete.');
+      setError(error.message);
     }
   };
 
@@ -55,12 +58,11 @@ const ShowTasksPage = () => {
 
   const handleUpdateTask = async () => {
     try {
-      await axios.put(`http://localhost:8070/week/${editingTask.id}`, editingTask);
+      await axios.put(`http://localhost:8070/week/${editingTask._id}`, editingTask);
       setEditingTask(null);
       fetchTasks();
     } catch (error) {
-      console.error(error);
-      alert('Failed to update task.');
+      setError(error.message);
     }
   };
 
@@ -69,13 +71,14 @@ const ShowTasksPage = () => {
       <h2>All Tasks</h2>
       <Calendar onClickDay={handleDateClick} value={selectedDate} />
       <h3>Tasks for {selectedDate.toDateString()}</h3>
+      {error && <p>Error: {error}</p>}
       <ul>
         {showTasks.map(task => (
-          <li key={task.id}>
+          <li key={task._id}>
             <strong>{task.title}</strong> - {task.description} - {task.time}
-            <button onClick={() => handleCompleteTask(task.id)}>Complete</button>
+            <button onClick={() => handleCompleteTask(task._id)}>Complete</button>
             <button onClick={() => handleEditTask(task)}>Edit</button>
-            <button onClick={() => handleDeleteTask(task.id)}>Delete</button>
+            <button onClick={() => handleDeleteTask(task._id)}>Delete</button>
           </li>
         ))}
       </ul>
