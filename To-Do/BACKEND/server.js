@@ -24,8 +24,8 @@ connection.once('open' , () =>{
 
 })
 
-const ScheduleRoute = require("./routes/schedulesRoute.js");
-app.use("/TrainerSchedule", ScheduleRoute );
+const WeekRoute = require("./routes/WeekTaskRoutes.js");
+app.use("/week", WeekRoute );
 
 
 app.listen(PORT, () =>{

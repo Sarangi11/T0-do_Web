@@ -1,164 +1,127 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const AddScheduleForm = () => {
-  const [formData, setFormData] = useState({
-    Date: '',
-    Member_id: '',
-    timeslot: '',
-    Trainer_name: '',
-    status: ''
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+const Home = () => {
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post('http://localhost:8070/TrainerSchedule/add', formData);
-      alert('Schedule added successfully');
-      // Optionally, reset form fields after successful submission
-      setFormData({
-        Date: '',
-        Member_id: '',
-        timeslot: '',
-        Trainer_name: '',
-        status: ''
-      });
-    } catch (error) {
-      console.error('Error adding schedule:', error);
-      alert('Error adding schedule. Please try again.');
+  const styles = {
+    home: {
+      textAlign: 'center',
+      padding: '20px'
+    },
+    header: {
+      backgroundColor: '#f8f9fa',
+      padding: '40px 20px',
+      borderBottom: '1px solid #ddd',
+      backgroundImage: "url('https://i.pinimg.com/564x/ed/86/89/ed8689f6f5fe641bc9729aefa98b1cb3.jpg')",
+    },
+    headerTitle: {
+      fontSize: '2.5em',
+      marginBottom: '10px'
+    },
+    headerDescription: {
+      fontSize: '1.2em',
+      marginBottom: '20px'
+    },
+    buttons: {
+      marginBottom: '20px'
+    },
+    button: {
+      display: 'inline-block',
+      margin: '0 10px',
+      padding: '10px 20px',
+      fontSize: '1em',
+      color: 'white',
+      backgroundColor: '#007bff',
+      border: 'none',
+      borderRadius: '5px',
+      textDecoration: 'none'
+    },
+    buttonHover: {
+      backgroundColor: '#0056b3'
+    },
+    slideshow: {
+      margin: '40px 0'
+    },
+    slideshowTitle: {
+      marginBottom: '20px'
+    },
+    slideshowImage: {
+      width: '100%',
+      maxHeight: '400px',
+      objectFit: 'cover'
+    },
+    videos: {
+      margin: '40px 0'
+    },
+    videosTitle: {
+      marginBottom: '20px'
+    },
+    videoGrid: {
+      display: 'flex',
+      justifyContent: 'space-around',
+      flexWrap: 'wrap'
+    },
+    video: {
+      width: '300px',
+      margin: '10px'
     }
   };
 
-
-  const styles = {
-    container: {
-      fontFamily: 'Arial, sans-serif',
-      backgroundImage: 'url("https://img.freepik.com/free-photo/young-fitness-man-studio_7502-5008.jpg?w=1060&t=st=1713280008~exp=1713280608~hmac=b33b160b321193f0b8d4ee63ac372676ddf5082a1947517ed1b21a87f00c9741")',
-      backgroundSize: '100% 100%',
-      textAlign: 'center',
-      padding: '20px',
-      height: '100vh',
-    },
-    heading: {
-      fontSize: '30px',
-      marginBottom: '20px',
-      color: 'white',
-    },
-    form: {
-      display: 'flex',
-      margin: 'auto',
-      flexDirection: 'column',
-      alignItems: 'center',
-      padding: '40px',
-      borderRadius: '10px',
-      backgroundColor: 'rgba(255, 255, 255, 0.8)', // Add background color with opacity
-      backdropFilter: 'blur(10px)', 
-      maxWidth: '500px', // Set maximum width
-      width: '100%',
-      alignItems: 'center',
-      
-    },
-    inputGroup: {
-      marginBottom: '20px',
-      alignItems: 'center',
-    },
-    
-    label: {
-      marginRight: '10px',
-      fontSize: '18px',
-      alignItems: 'center',
-    },
-    input: {
-      padding: '5px',
-      fontSize: '20px',
-      borderRadius: '5px',
-      border: '1px solid #ccc',
-      width: '100%',
-      alignItems: 'center',
-    },
-    button: {
-        padding: '12px 24px',
-      fontSize: '16px',
-      backgroundColor: '#007bff',
-      color: '#fff',
-      border: 'none',
-      borderRadius: '5px',
-      cursor: 'pointer',
-      width: '100%',
-    },
-  };
-
   return (
-    <div style={styles.container}>
-      <h2 style={styles.heading}>Add Schedule</h2>
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <div style={styles.inputGroup}>
-          <label style={styles.label}>Date:</label>
-          <input
-            type="date"
-            name="Date"
-            value={formData.Date}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
+    <div style={styles.home}>
+      <header style={styles.header}>
+        <h1 style={styles.headerTitle}>Welcome to the To-Do List App</h1>
+        <p style={styles.headerDescription}>Manage your tasks efficiently and stay organized</p>
+        <div style={styles.buttons}>
+          <Link to="/login" style={{ ...styles.button, ':hover': styles.buttonHover }}>Login</Link>
+          <Link to="/register" style={{ ...styles.button, ':hover': styles.buttonHover }}>Sign Up</Link>
         </div>
-        <div>
-          <label style={styles.label}>Member ID:</label>
-          <input
-            type="text"
-            name="Member_id"
-            value={formData.Member_id}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
+      </header>
+      
+      <section style={styles.slideshow}>
+        <h2 style={styles.slideshowTitle}>Features</h2>
+        <Slider {...sliderSettings}>
+          <div>
+            <img src="image1.jpg" alt="Feature 1" style={styles.slideshowImage} />
+          </div>
+          <div>
+            <img src="image2.jpg" alt="Feature 2" style={styles.slideshowImage} />
+          </div>
+          <div>
+            <img src="image3.jpg" alt="Feature 3" style={styles.slideshowImage} />
+          </div>
+        </Slider>
+      </section>
+
+      <section style={styles.videos}>
+        <h2 style={styles.videosTitle}>Learn More About the App</h2>
+        <div style={styles.videoGrid}>
+          <video controls style={styles.video}>
+            <source src="https://youtube.com/shorts/d5aXIsJ_wSU?si=qrPNCsKNxzgPRq60" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <video controls style={styles.video}>
+            <source src="video2.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <video controls style={styles.video}>
+            <source src="video3.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
-        <div>
-          <label style={styles.label}>Timeslot:</label>
-          <input
-            type="text"
-            name="timeslot"
-            value={formData.timeslot}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
-        </div>
-        <div>
-          <label style={styles.label}>Trainer Name:</label>
-          <input
-            type="text"
-            name="Trainer_name"
-            value={formData.Trainer_name}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
-        </div>
-        <div>
-          <label style={styles.label}>Status:</label>
-          <input
-            type="text"
-            name="status"
-            value={formData.status}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
-        </div><br/>
-        <button type="submit" style={styles.button}>Add Schedule</button>
-      </form>
+      </section>
     </div>
   );
-};
+}
 
-export default AddScheduleForm;
+export default Home;
