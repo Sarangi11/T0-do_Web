@@ -11,13 +11,13 @@ const NavigationBar = () => {
           <Link to="/" style={styles.link}>Home</Link>
         </li>
         <li style={styles.li}>
-          <Link to="/WeekTask" style={styles.link}>Create Tasks</Link>
+          <Link to="/addTask" style={styles.link}>Add Tasks</Link>
         </li>
         <li style={styles.li}>
-          <Link to="/update" style={styles.link}>View Tasks</Link>
+          <Link to="/updateTask" style={styles.link}>View Tasks</Link>
         </li>
         <li style={styles.li}>
-          <Link to="/complete" style={styles.link}>Complete Tasks</Link>
+          <Link to="/completeTa" style={styles.link}>Complete Tasks</Link>
         </li>
       </ul>
     </nav>
