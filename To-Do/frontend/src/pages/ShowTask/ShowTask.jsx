@@ -25,7 +25,11 @@ const ShowTasksPage = () => {
   };
 
   const filterTasks = (date) => {
-    const filteredTasks = tasks.filter(task => task.date === date.toISOString().split('T')[0]);
+    const selectedDateString = date.toISOString().split('T')[0];
+    const filteredTasks = tasks.filter(task => {
+      const taskDateString = new Date(task.date).toISOString().split('T')[0];
+      return taskDateString === selectedDateString;
+    });
     setShowTasks(filteredTasks);
   };
 
