@@ -46,6 +46,7 @@ The application will open in your default web browser.
 - React Router - Declarative routing for React.js applications.
 - Axios - HTTP client for making requests to the backend server.
 - CSS - Cascading Style Sheets for styling the application.
+- MERN Stack(MongoDB, Express,React,Node)
 
 ## Author
 
