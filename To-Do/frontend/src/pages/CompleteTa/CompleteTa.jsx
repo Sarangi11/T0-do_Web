@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'; 
 
-function Workoutpage() {
+function page() {
   return (
     <div style={styles.container}>
       <h1 style={styles.heading}>Complete Tasks</h1>
@@ -46,4 +46,4 @@ const styles = {
   },
 };
 
-export default Workoutpage;
+export default page;
