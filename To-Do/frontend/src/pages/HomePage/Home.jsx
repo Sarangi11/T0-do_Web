@@ -50,15 +50,18 @@ const Home = () => {
       backgroundColor: '#0056b3'
     },
     slideshow: {
-      margin: '40px 0'
+      margin: '30px 10px'
+
     },
     slideshowTitle: {
       marginBottom: '20px'
     },
     slideshowImage: {
-      width: '100%',
-      maxHeight: '400px',
-      objectFit: 'cover'
+      
+    width: '50%',
+    maxHeight: '400px', // Decrease the maxHeight to reduce the size of the images
+    objectFit: 'cover',
+
     },
     videos: {
       margin: '40px 0'
@@ -92,13 +95,13 @@ const Home = () => {
         <h2 style={styles.slideshowTitle}>Features</h2>
         <Slider {...sliderSettings}>
           <div>
-            <img src="image1.jpg" alt="Feature 1" style={styles.slideshowImage} />
+            <img src="https://images.pexels.com/photos/7150986/pexels-photo-7150986.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Feature 1" style={styles.slideshowImage} />
           </div>
           <div>
-            <img src="image2.jpg" alt="Feature 2" style={styles.slideshowImage} />
+            <img src="https://images.pexels.com/photos/5717442/pexels-photo-5717442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Feature 2" style={styles.slideshowImage} />
           </div>
           <div>
-            <img src="image3.jpg" alt="Feature 3" style={styles.slideshowImage} />
+            <img src="https://images.pexels.com/photos/5408818/pexels-photo-5408818.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Feature 3" style={styles.slideshowImage} />
           </div>
         </Slider>
       </section>

@@ -23,36 +23,85 @@ const CreateTaskPage = () => {
     }
   };
 
+  const styles = {
+    container: {
+      backgroundImage:"url('https://images.pexels.com/photos/7582013/pexels-photo-7582013.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+      fontFamily: 'Arial, sans-serif',
+      padding: '100px',
+      maxWidth: '300px',
+      margin: 'auto',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      
+    },
+    header: {
+      textAlign: 'center',
+      marginBottom: '20px',
+    },
+    form: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '10px',
+    },
+    input: {
+      padding: '10px',
+      border: '1px solid #ccc',
+      borderRadius: '5px',
+    },
+    textarea: {
+      padding: '10px',
+      border: '1px solid #ccc',
+      borderRadius: '5px',
+    },
+    button: {
+      background: '#007bff',
+      border: 'none',
+      color: 'white',
+      padding: '10px 15px',
+      textAlign: 'center',
+      textDecoration: 'none',
+      display: 'inline-block',
+      fontSize: '16px',
+      margin: '2px',
+      borderRadius: '5px',
+      cursor: 'pointer',
+    },
+  };
+
   return (
-    <div className="create-task-page">
-      <h2>Create Task</h2>
-      <form onSubmit={(e) => e.preventDefault()}>
+    <div style={styles.container} className="create-task-page">
+      <h2 style={styles.header}>Create Task</h2>
+      <form style={styles.form} onSubmit={(e) => e.preventDefault()}>
         <input
           type="text"
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
+          style={styles.input}
         />
         <input
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
           required
+          style={styles.input}
         />
         <input
           type="time"
           value={time}
           onChange={(e) => setTime(e.target.value)}
           required
+          style={styles.input}
         />
         <textarea
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           required
+          style={styles.textarea}
         ></textarea>
-        <button type="button" onClick={handleAddTask}>Add Task</button>
+        <button type="button" onClick={handleAddTask} style={styles.button}>Add Task</button>
       </form>
     </div>
   );
