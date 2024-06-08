@@ -86,8 +86,8 @@ const Home = () => {
         <h1 style={styles.headerTitle}>Welcome to the To-Do List App</h1>
         <p style={styles.headerDescription}>Manage your tasks efficiently and stay organized</p>
         <div style={styles.buttons}>
-          <Link to="/login" style={{ ...styles.button, ':hover': styles.buttonHover }}>Login</Link>
-          <Link to="/register" style={{ ...styles.button, ':hover': styles.buttonHover }}>Sign Up</Link>
+          <Link to="/signin" style={{ ...styles.button, ':hover': styles.buttonHover }}>Login</Link>
+          <Link to="/register" style={{ ...styles.button, ':hover': styles.buttonHover }}>Register</Link>
         </div>
       </header>
       

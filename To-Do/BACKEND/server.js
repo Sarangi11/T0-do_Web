@@ -27,6 +27,9 @@ connection.once('open' , () =>{
 const WeekRoute = require("./routes/WeekTaskRoutes.js");
 app.use("/week", WeekRoute );
 
+const Tasknew = require("./routes/TaskRoutes.js");
+app.use("/task", Tasknew );
+
 const User = require("./routes/UserRoute.js");
 app.use("/user", User );
 

@@ -7,6 +7,10 @@ import CompleteTask from './pages/CompleteTask/CompleteTask';
 import NavigationBar from './Components/NavigationBar/NavigationBar';
 import SignIn from './pages/SignIn/SignIn';
 import Register from './pages/Register/Register';
+import NormalTask from './pages/NormalTask/NormalTask';
+import ViewTask from './pages/ViewTask/ViewTask';
+
+
 
 function App() {
   return (
@@ -19,6 +23,9 @@ function App() {
       <Route path='/complete' element={<CompleteTask/>}/>
       <Route path="/signin" element={<SignIn/>} />
       <Route path="/register" element={<Register/>} />
+      <Route path="/tasks" element={<NormalTask/>} />
+      <Route path="/taskView" element={<ViewTask/>} />
+      
     </Routes>
     </Router>
   );
