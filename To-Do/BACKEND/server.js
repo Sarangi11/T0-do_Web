@@ -27,6 +27,9 @@ connection.once('open' , () =>{
 const WeekRoute = require("./routes/WeekTaskRoutes.js");
 app.use("/week", WeekRoute );
 
+const User = require("./routes/UserRoute.js");
+app.use("/user", User );
+
 
 app.listen(PORT, () =>{
     console.log(`Server is up and running on prot number: ${PORT}`)
