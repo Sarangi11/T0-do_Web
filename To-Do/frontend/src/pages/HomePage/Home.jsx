@@ -59,8 +59,7 @@ const Home = () => {
     slideshowImage: {
       
     width: '50%',
-    maxHeight: '400px', // Decrease the maxHeight to reduce the size of the images
-    objectFit: 'cover',
+    maxHeight: '400px', 
 
     },
     videos: {
@@ -110,16 +109,16 @@ const Home = () => {
         <h2 style={styles.videosTitle}>Learn More About the App</h2>
         <div style={styles.videoGrid}>
           <video controls style={styles.video}>
-            <source src="https://youtube.com/shorts/d5aXIsJ_wSU?si=qrPNCsKNxzgPRq60" type="video/mp4" />
-            Your browser does not support the video tag.
+            <source src="video1.mp4" type="video/mp4" />
+           
           </video>
           <video controls style={styles.video}>
             <source src="video2.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+            
           </video>
           <video controls style={styles.video}>
             <source src="video3.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+           
           </video>
         </div>
       </section>
