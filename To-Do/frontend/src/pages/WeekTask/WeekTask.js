@@ -26,23 +26,33 @@ const CreateTaskPage = () => {
 
   const styles = {
     container: {
-      backgroundImage:"url('https://images.pexels.com/photos/7582013/pexels-photo-7582013.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+      backgroundImage: "url('https://images.pexels.com/photos/5946167/pexels-photo-5946167.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
       fontFamily: 'Arial, sans-serif',
-      padding: '100px',
-      maxWidth: '300px',
       margin: 'auto',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
-      
+      minHeight: '100vh', 
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
     header: {
       textAlign: 'center',
       marginBottom: '20px',
+      fontSize: '50px',
+      color: 'white',
+      fontFamily: 'Times New Roman',
     },
     form: {
       display: 'flex',
       flexDirection: 'column',
       gap: '10px',
+      backgroundColor: 'rgba(255, 255, 255, 0.8)', // Semi-transparent background
+      padding: '20px',
+      borderRadius: '10px',
+      maxWidth: '500px',
+      width: '100%',
     },
     input: {
       padding: '10px',
@@ -53,6 +63,8 @@ const CreateTaskPage = () => {
       padding: '10px',
       border: '1px solid #ccc',
       borderRadius: '5px',
+      resize: 'vertical',
+      minHeight: '100px', // Minimum height for textarea
     },
     button: {
       background: '#007bff',

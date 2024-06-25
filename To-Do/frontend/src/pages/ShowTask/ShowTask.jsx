@@ -80,21 +80,27 @@ const ShowTasksPage = () => {
 
   const styles = {
     container: {
-      fontFamily: 'Arial, sans-serif',
+      fontFamily: 'Times New Roman',
       padding: '20px',
-      maxWidth: '800px',
+      maxWidth: '1700px',
       margin: 'auto',
+      backgroundImage: `url('https://images.pexels.com/photos/4110453/pexels-photo-4110453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`,
+      minHeight: '100vh', 
+      backgroundSize: 'cover', 
+      backgroundRepeat: 'no-repeat',
+    
     },
     header: {
       textAlign: 'center',
       marginBottom: '20px',
+      fontSize: '50px',
     },
     taskList: {
       listStyleType: 'none',
       padding: '0',
     },
     taskItem: {
-      backgroundImage: "url('https://images.pexels.com/photos/5546907/pexels-photo-5546907.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+      backgroundImage: "url('https://images.pexels.com/photos/6446668/pexels-photo-6446668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
       marginBottom: '10px',
       padding: '10px',
       color: 'white',
@@ -103,6 +109,7 @@ const ShowTasksPage = () => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
+      maxWidth: '700px',
     },
     taskContent: {
       flex: '1',
@@ -140,7 +147,7 @@ const ShowTasksPage = () => {
     },
     editForm: {
       background: '#f9f9f9',
-      backgroundImage: "url('https://images.pexels.com/photos/5546907/pexels-photo-5546907.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+      backgroundImage: "url('https://images.pexels.com/photos/6446668/pexels-photo-6446668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
       padding: '20px',
       borderRadius: '5px',
       boxShadow: '0 1px 3px rgba(0,0,0,0.1)',

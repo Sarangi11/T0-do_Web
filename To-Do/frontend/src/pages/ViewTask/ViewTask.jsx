@@ -56,16 +56,29 @@ const TaskListPage = () => {
     maxWidth: '800px',
   };
 
+  const container = {
+    fontFamily: 'Times New Roman',
+      padding: '20px',
+      maxWidth: '1700px',
+      margin: 'auto',
+      backgroundImage: `url('https://images.pexels.com/photos/4110453/pexels-photo-4110453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`,
+      minHeight: '100vh', 
+      backgroundSize: 'cover', 
+      backgroundRepeat: 'no-repeat',
+  };
+
+
   const taskItemStyle = {
-    backgroundImage: "url('https://images.pexels.com/photos/5546907/pexels-photo-5546907.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+    backgroundImage: "url('https://images.pexels.com/photos/6446668/pexels-photo-6446668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
       marginBottom: '10px',
       padding: '10px',
-      color: 'white',
+      color: 'black',
       border: '1px solid #ccc',
       borderRadius: '5px',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
+      maxWidth: '700px',
   };
 
   const taskActionsStyle = {
@@ -124,7 +137,7 @@ const TaskListPage = () => {
     width: '100%',
     padding: '5px',
     marginBottom: '10px',
-    border: '1px solid #ccc',
+    border: '3px solid #ccc',
     borderRadius: '5px',
   };
 
@@ -135,8 +148,9 @@ const TaskListPage = () => {
   };
 
   return (
+    <div style={container}>
     <div style={taskListStyle}>
-      <h2>Task List</h2>
+      <h1>Task List</h1>
       {error && <p>Error: {error}</p>}
       <ul>
         {tasks.map(task => (
@@ -163,7 +177,7 @@ const TaskListPage = () => {
           </form>
         </div>
       )}
-    </div>
+    </div></div>
   );
 };
 

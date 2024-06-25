@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
+import new3 from "./new3.png";
+import new4 from "./new4.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -16,51 +18,65 @@ const Home = () => {
   const styles = {
     home: {
       textAlign: 'center',
-      padding: '20px'
+      padding: '20px',
+      backgroundImage: `url('https://images.pexels.com/photos/243337/pexels-photo-243337.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`,
+      
+       
+      
     },
     header: {
-      backgroundColor: '#f8f9fa',
-      padding: '40px 20px',
-      borderBottom: '1px solid #ddd',
-      backgroundImage: "url('https://i.pinimg.com/564x/ed/86/89/ed8689f6f5fe641bc9729aefa98b1cb3.jpg')",
+      
+      padding: '50px 20px',
+      borderBottom: '4px solid #ddd',
+      backgroundImage: `url('https://images.pexels.com/photos/243337/pexels-photo-243337.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`,
+      backgroundSize: 'cover', 
+      backgroundPosition: 'center center', 
+      backgroundRepeat: 'no-repeat'
     },
     headerTitle: {
-      fontSize: '2.5em',
-      marginBottom: '10px'
+      fontSize: '100px',
+      marginBottom: '10px',
+      textAlign:'left',
+      color: 'white',
+      fontFamily: 'Arial, sans-serif',
     },
     headerDescription: {
-      fontSize: '1.2em',
-      marginBottom: '20px'
+      fontSize: '2.6em',
+      marginBottom: '20px',
+      color: '#ADCFD8',
+      textAlign:'left',
     },
     buttons: {
-      marginBottom: '20px'
+      marginBottom: '20px',
+      textAlign: 'left',
     },
     button: {
       display: 'inline-block',
-      margin: '0 10px',
-      padding: '10px 20px',
-      fontSize: '1em',
-      color: 'white',
-      backgroundColor: '#007bff',
-      border: 'none',
-      borderRadius: '5px',
-      textDecoration: 'none'
+      margin: '10 10px',
+      padding: '10px 23px',
+      fontSize: '2em',
+      color: 'black',
+      backgroundColor: '#D0D8E9',
+      border: '4px solid #1E1E1E', 
+      bordercolor: '#8094BE',
+      borderRadius: '10px',
+      textDecoration: 'none',
+      fontFamily: 'Times New Roman',
+     
+      
     },
     buttonHover: {
       backgroundColor: '#0056b3'
     },
     slideshow: {
       margin: '30px 10px'
-
     },
     slideshowTitle: {
       marginBottom: '20px'
     },
     slideshowImage: {
-      
-    width: '50%',
-    maxHeight: '400px', 
-
+      width: '50%',
+      maxHeight: '400px'
     },
     videos: {
       margin: '40px 0'
@@ -83,45 +99,17 @@ const Home = () => {
     <div style={styles.home}>
       <header style={styles.header}>
         <h1 style={styles.headerTitle}>Welcome to the To-Do List App</h1>
-        <p style={styles.headerDescription}>Manage your tasks efficiently and stay organized</p>
+        <p style={styles.headerDescription}>Manage your tasks efficiently <br></br>and stay organized</p>
         <div style={styles.buttons}>
-          <Link to="/signin" style={{ ...styles.button, ':hover': styles.buttonHover }}>Login</Link>
-          <Link to="/register" style={{ ...styles.button, ':hover': styles.buttonHover }}>Register</Link>
+        <br></br><br></br>
+          <Link to="/signin" style={styles.button}>Login</Link>
+          <Link to="/register" style={styles.button}>Register</Link>
         </div>
+        <br></br><br></br><br></br><br></br>
+        
       </header>
-      
-      <section style={styles.slideshow}>
-        <h2 style={styles.slideshowTitle}>Features</h2>
-        <Slider {...sliderSettings}>
-          <div>
-            <img src="https://images.pexels.com/photos/7150986/pexels-photo-7150986.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Feature 1" style={styles.slideshowImage} />
-          </div>
-          <div>
-            <img src="https://images.pexels.com/photos/5717442/pexels-photo-5717442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Feature 2" style={styles.slideshowImage} />
-          </div>
-          <div>
-            <img src="https://images.pexels.com/photos/5408818/pexels-photo-5408818.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Feature 3" style={styles.slideshowImage} />
-          </div>
-        </Slider>
-      </section>
+    
 
-      <section style={styles.videos}>
-        <h2 style={styles.videosTitle}>Learn More About the App</h2>
-        <div style={styles.videoGrid}>
-          <video controls style={styles.video}>
-            <source src="video1.mp4" type="video/mp4" />
-           
-          </video>
-          <video controls style={styles.video}>
-            <source src="video2.mp4" type="video/mp4" />
-            
-          </video>
-          <video controls style={styles.video}>
-            <source src="video3.mp4" type="video/mp4" />
-           
-          </video>
-        </div>
-      </section>
     </div>
   );
 }

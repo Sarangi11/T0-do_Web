@@ -20,15 +20,22 @@ const CompletedTasksPage = () => {
 
   const styles = {
     container: {
+      backgroundImage: "url('https://images.pexels.com/photos/6446668/pexels-photo-6446668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
       fontFamily: 'Arial, sans-serif',
-      backgroundImage: "url('https://i.pinimg.com/564x/ed/86/89/ed8689f6f5fe641bc9729aefa98b1cb3.jpg')",
-      padding: '20px',
-      maxWidth: '800px',
       margin: 'auto',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      minHeight: '100vh', 
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      
+      
     },
     header: {
       textAlign: 'center',
       marginBottom: '20px',
+      fontSize: '50px',
     },
     taskList: {
       listStyleType: 'none',
@@ -36,14 +43,14 @@ const CompletedTasksPage = () => {
     },
     taskItem: {
       marginBottom: '10px',
-      padding: '10px',
+      padding: '20px',
       color: 'white',
-      border: '1px solid #ccc',
+      border: '3px solid #ccc',
       borderRadius: '5px',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      backgroundColor: '#1B1C55',
+      backgroundColor: '#3B3F3C',
     },
     taskContent: {
       flex: '1',
@@ -52,6 +59,7 @@ const CompletedTasksPage = () => {
 
   return (
     <div style={styles.container} className="completed-tasks-page">
+    <div>
       <h2 style={styles.header}>Completed Tasks</h2>
       <ul style={styles.taskList}>
         {completedTasks.map((task, index) => (
@@ -62,7 +70,7 @@ const CompletedTasksPage = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </div></div>
   );
 };
 

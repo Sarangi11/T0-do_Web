@@ -55,12 +55,22 @@ const AddTaskPage = () => {
 
 const styles = {
   container: {
-    maxWidth: '600px',
-    margin: '0 auto',
-    padding: '20px',
+    backgroundImage: "url('https://images.pexels.com/photos/6446668/pexels-photo-6446668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+      fontFamily: 'Arial, sans-serif',
+      margin: 'auto',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      minHeight: '100vh', 
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      
+      flexDirection: 'column',
   },
   title: {
-    fontSize: '24px',
+    fontSize: '50px',
+      color: 'white',
+      fontFamily: 'Times New Roman',
     marginBottom: '20px',
     textAlign: 'center',
   },
@@ -68,6 +78,7 @@ const styles = {
     backgroundColor: '#f9f9f9',
     padding: '20px',
     borderRadius: '5px',
+    width:'600px',
     boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
   },
   formGroup: {
